@@ -1,0 +1,11 @@
+version: '3'
+services:
+  wordpress:
+    build: .
+    container_name: wordpress_sqlite
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      # Mapea la carpeta local wp-content al contenedor (PERSISTENCIA)
+      - ./wp-content:/var/www/html/wp-content
